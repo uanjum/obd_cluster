@@ -9,7 +9,7 @@ import obd
 def connectOBD():
     ports = obd.scan_serial()
     print(ports)
-    connection = obd.OBD(ports[0])
+    connection = obd.OBD(ports[1])
     connection_status = connection.is_connected()
 
     if connection_status:
@@ -150,11 +150,11 @@ master.grid(row=0, column=0)
 index = [None]*6
 nwerty = 1
 
-backimg = "A:/Projects/AccordOBD/blueback.gif"
+backimg = "A:/Projects/obd_cluster/blueback.gif"
 filename = PhotoImage(file=backimg)
 background = master.create_image(0, 0, image=filename, anchor=NW)
 
-im = "A:/Projects/AccordOBD/dial2.gif"
+im = "A:/Projects/obd_cluster/dial2.gif"
 photo = PhotoImage(file=im)
 radar1 = master.create_image(35, 60, image=photo, anchor=NW)
 radar2 = master.create_image(310, 60, image=photo, anchor=NW)
@@ -165,7 +165,7 @@ radar5 = master.create_image(310, 300, image=photo, anchor=NW)
 radar6 = master.create_image(560, 300, image=photo, anchor=NW)
 
 
-f = open('A:/Projects/AccordOBD/obdDescriptions.pckl', 'rb')
+f = open('A:/Projects/obd_cluster/obdDescriptions.pckl', 'rb')
 labels = pickle.load(f)
 f.close()
 
