@@ -1,1 +1,0 @@
-['Engine Coolant Temperature', 'Engine Coolant Temperature', 'Short term secondary O2 trim - Bank 2', None, None, None]

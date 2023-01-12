@@ -9,7 +9,7 @@ import obd
 def connectOBD():
     ports = obd.scan_serial()
     print(ports)
-    connection = obd.OBD(ports[1])
+    connection = obd.OBD(ports[2])
     connection_status = connection.is_connected()
 
     if connection_status:

@@ -18,14 +18,14 @@ class OBDConnection:
             print("Connection Failed!")
     
     def check_connection_status(self):
-        self.connection_status = self.connection.is_connected() #check to see if the device is connected to elm and car with iginition on
+        return self.connection.is_connected() #check to see if the device is connected to elm and car with iginition on
 
     def send_command(self, obd_command):
-        if self.check_connection_status():
+        if self.check_connection_status() and obd.commands.has_command(obd.commands[obd_command]):
             response_val = self.connection.query(obd.commands[obd_command])
             return response_val
     
-    
+
 
 
 
