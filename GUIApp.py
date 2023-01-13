@@ -86,14 +86,14 @@ class GUIApp:
         self.select_window.geometry('700x380')
 
         self.combo_boxes = []
-        counter = 0
+        counter_box = 0
         for i in range(0,2):
             for j in range(0,3):
-                self.combo_boxes.append(ttk.Combobox(self.select_window, state = 'readonly', textvariable = self.labels[counter]))
-                self.combo_boxes[counter]['values'] = obdCommandDescription
-                self.combo_boxes[counter].grid(row = i, column = j, padx = 10, pady = 10)
-                self.combo_boxes[counter].current(obdCommandDescription.index(self.labels[counter]))
-                counter += 1
+                self.combo_boxes.append(ttk.Combobox(self.select_window, state = 'readonly'))
+                self.combo_boxes[counter_box]['values'] = obdCommandDescription
+                self.combo_boxes[counter_box].grid(row = i, column = j, padx = 10, pady = 10)
+                self.combo_boxes[counter_box].current(obdCommandDescription.index(self.labels[counter_box]))
+                counter_box += 1
         
         saveButton = Button(self.select_window, text = 'Save', command = self.save_new_commands)
         saveButton.place(x = 100, y = 100)
@@ -133,7 +133,7 @@ class GUIApp:
         self.connection = OBDConnection()
         print(self.connection.look_for_connections())
 
-        self.connection.connect_to_port(2)
+        self.connection.connect_to_port(1)
 
         if self.connection.check_connection_status():
             self.update_values()
