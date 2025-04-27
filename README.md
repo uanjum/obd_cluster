@@ -1,5 +1,5 @@
 <p align="center">
-  ![obd_cluster](https://github.com/user-attachments/assets/80490e7a-4887-41b1-bc9f-fc4aae3c90e1)
+  <img src="https://github.com/user-attachments/assets/80490e7a-4887-41b1-bc9f-fc4aae3c90e1" alt="obd_cluster" />
 </p>
 
 
@@ -18,11 +18,15 @@ Most of the time was spend on the GUI, since when the connection to the ELM327 d
 
 The other half my time was spend trying to research what are some acceptable ranges for all the sensor readings, since sensor readings alone are meaningless. Of course, different cars/engines will have different minimum and maximum and readings. So with a little bit of averaging magic, BAM!
 
-![minmaxvalues](https://github.com/user-attachments/assets/3297d93b-52f7-482a-a961-ea3cd18705a3)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3297d93b-52f7-482a-a961-ea3cd18705a3" alt="average" />
+</p>
 
 Currently, all dials are same, but also added a dial type incase I decide to change the dial from a simple dial to a mini-graph or chart.
 Since I wanted to freedom to change which sensor values are displayed, I added a “commands” button to the top left so a second window is launched and different sensors can be selected. To avoid any errors, the communication to the ELM device is paused, when the user is in the select screen. The selection screen is pretty bare bones using tkinter “ComboBox” 
 
-![obd_cluster_selection](https://github.com/user-attachments/assets/b56da80a-8694-4856-8656-b968e2657ce7)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b56da80a-8694-4856-8656-b968e2657ce7" alt="average" />
+</p>
 
 If you would like to make recommendations on how I can improve this, shoot me an email. The code for this projects is also available on my github!
