@@ -1,13 +1,28 @@
-               This project started with the intention of collecting data that was readily available but wasn’t being tapped into. Collecting data is important because it allows individuals and organizations to make informed decisions. By gathering and analyzing data, patterns and trends can be identified, and predictions can be made about future events.  
-                A modern car has numerous sensors built into every major component to monitor temperature, voltage, flowrates, etc. Cars also have a convenient way to communicate with these sensors using the OBDII diagnostic port which help vehicle owners and technicians see what the sensors are reading to diagnose any faults. 
-                For myself, I wanted to look at the data the car sensors were reading and after a while of collecting data, see if there were anomolies and find the root cause. I could use free apps like Torque Lite to display some cool gauges, but I couldn’t get it to run on a Raspberry Pi that I had lying around that really wanted to use. Also, with this, I could control gauges, placement, images to my heart’s content without hitting any paywalls with any apps.
-                I found a cool python library called “Python-OBD” (https://github.com/brendan-w/python-OBD.git) that could connect with any ELM327 adapters that are most commonly used to interact with the OBD protocols. To make sure the library worked, I needed some way to test it without having to go out to the car everytime I needed to make a change to see if its working or not. 
-                Searching for and OBDII emulator was tough but settled on the OBDSim (https://icculus.org/) since it was easy to run and didn’t have any bloat features that I didn’t need. 
-                Next needed to find a good library for GUIs in python which wasn’t hard since “tkinter” (a GUI toolkit) comes built in with everything Python copy. I decided to make some nice sleek looking dials for the background and instead of needles, found a cool ARC widget in tkinter that can be used instead. 
-                Most of the time was spend on the GUI, since when the connection to the ELM327 device is made, all I need to do is loop over a function that sends queries the car. The response gets converted to value between 0 and 180 degrees (because, arc) and the arc angle is changed. 
-                The other half my time was spend trying to research what are some acceptable ranges for all the sensor readings, since sensor readings alone are meaningless. Of course, different cars/engines will have different minimum and maximum and readings. So with a little bit of averaging magic, BAM!
-                <img src = {require("../res/minmaxvalues.JPG")} alt = "min_max_values" width = "100%"/>
-                Currently, all dials are same, but also added a dial type incase I decide to change the dial from a simple dial to a mini-graph or chart.
-                Since I wanted to freedom to change which sensor values are displayed, I added a “commands” button to the top left so a second window is launched and different sensors can be selected. To avoid any errors, the communication to the ELM device is paused, when the user is in the select screen. The selection screen is pretty bare bones using tkinter “ComboBox” 
-                <img src = {require("../res/obd_cluster_selection.JPG")} alt = "min_max_values" width = "100%"/>
-                If you would like to make recommendations on how I can improve this, shoot me an email. The code for this projects is also available on my github!
+<p align="center">
+  ![obd_cluster](https://github.com/user-attachments/assets/80490e7a-4887-41b1-bc9f-fc4aae3c90e1)
+</p>
+
+
+This project started with the intention of collecting data that was readily available but wasn’t being tapped into. Collecting data is important because it allows individuals and organizations to make informed decisions. By gathering and analyzing data, patterns and trends can be identified, and predictions can be made about future events.  
+
+A modern car has numerous sensors built into every major component to monitor temperature, voltage, flowrates, etc. Cars also have a convenient way to communicate with these sensors using the OBDII diagnostic port which help vehicle owners and technicians see what the sensors are reading to diagnose any faults. 
+
+For myself, I wanted to look at the data the car sensors were reading and after a while of collecting data, see if there were anomolies and find the root cause. I could use free apps like Torque Lite to display some cool gauges, but I couldn’t get it to run on a Raspberry Pi that I had lying around that really wanted to use. Also, with this, I could control gauges, placement, images to my heart’s content without hitting any paywalls with any apps.
+
+I found a cool python library called “Python-OBD” (https://github.com/brendan-w/python-OBD.git) that could connect with any ELM327 adapters that are most commonly used to interact with the OBD protocols. To make sure the library worked, I needed some way to test it without having to go out to the car everytime I needed to make a change to see if its working or not. 
+
+Searching for and OBDII emulator was tough but settled on the OBDSim (https://icculus.org/) since it was easy to run and didn’t have any bloat features that I didn’t need. 
+Next needed to find a good library for GUIs in python which wasn’t hard since “tkinter” (a GUI toolkit) comes built in with everything Python copy. I decided to make some nice sleek looking dials for the background and instead of needles, found a cool ARC widget in tkinter that can be used instead. 
+
+Most of the time was spend on the GUI, since when the connection to the ELM327 device is made, all I need to do is loop over a function that sends queries the car. The response gets converted to value between 0 and 180 degrees (because, arc) and the arc angle is changed. 
+
+The other half my time was spend trying to research what are some acceptable ranges for all the sensor readings, since sensor readings alone are meaningless. Of course, different cars/engines will have different minimum and maximum and readings. So with a little bit of averaging magic, BAM!
+
+![minmaxvalues](https://github.com/user-attachments/assets/3297d93b-52f7-482a-a961-ea3cd18705a3)
+
+Currently, all dials are same, but also added a dial type incase I decide to change the dial from a simple dial to a mini-graph or chart.
+Since I wanted to freedom to change which sensor values are displayed, I added a “commands” button to the top left so a second window is launched and different sensors can be selected. To avoid any errors, the communication to the ELM device is paused, when the user is in the select screen. The selection screen is pretty bare bones using tkinter “ComboBox” 
+
+![obd_cluster_selection](https://github.com/user-attachments/assets/b56da80a-8694-4856-8656-b968e2657ce7)
+
+If you would like to make recommendations on how I can improve this, shoot me an email. The code for this projects is also available on my github!
